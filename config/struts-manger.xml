@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<package name="manager" namespace="/manager" extends="one">
+	
+		<interceptors>
+			<interceptor name="userLoginInterceptor"  
+	                class="com.store.interceptor.UserLoginInterceptor">  
+	        </interceptor> 
+		</interceptors>
+	
+		
+		<!-- UserAction_*  class 交由spring处理，默认为类名（首字母小写）-->
+		<action name="UserAction_*" class="com.store.action.UserAction" method="{1}">
+			<interceptor-ref name="userLoginInterceptor">   
+            </interceptor-ref>  
+            <interceptor-ref name="myStack">  
+            </interceptor-ref> 
+		    <result name="manager">/WEB-INF/manage/manager.jsp</result>
+		    <result name="redirectAction_to_manager" type="redirectAction">UserAction_manager.do</result>
+		    <result name="input">/index.jsp</result>
+		   
+		</action>
+		
+		
+	    <action name="CustomerAction_*" class="com.store.action.CustomerAction" method="{1}">
+		
+			<interceptor-ref name="userLoginInterceptor">  
+            </interceptor-ref>  
+            <interceptor-ref name="myStack">  
+            </interceptor-ref> 
+		
+			<result name="index">/WEB-INF/manage/customer.jsp</result>
+			<result name="redirectAction_to_index" type="redirectAction">CustomerAction_index.do</result>
+		    <result name="order">/WEB-INF/manage/order.jsp</result>
+		   
+		    <result name="input">/index.jsp</result>
+		   
+		</action>
+		
+		
+		<action name="CategoryAction_*" class="com.store.action.CategoryAction" method="{1}">
+		
+		
+			<interceptor-ref name="userLoginInterceptor">  
+            </interceptor-ref>  
+            <interceptor-ref name="myStack">  
+            </interceptor-ref> 
+		    <result name="index">/WEB-INF/manage/category.jsp</result>
+		    <result name="add">/WEB-INF/manage/lesson_add.jsp</result>
+		    <result name="redirectAction_to_index" type="redirectAction">CategoryAction_index.do</result>
+		    <result name="input">/index.jsp</result>
+		   
+		</action>
+		<action name="SecondCategoryAction_*" class="com.store.action.SecondCategoryAction" method="{1}">	
+			<interceptor-ref name="userLoginInterceptor">  
+            </interceptor-ref>  
+            <interceptor-ref name="myStack">  
+            </interceptor-ref> 
+		    <result name="index">/WEB-INF/manage/SecondCategory.jsp</result>
+		    <result name="add">/WEB-INF/manage/secondcategory_add.jsp</result>
+		    <result name="redirectAction_to_index" type="redirectAction">SecondCategoryAction_index.do</result>
+		    <result name="update">/WEB-INF/manage/secondCategory_Modify.jsp</result>	   
+		</action>
+		
+		<action name="ProductAction_*" class="com.store.action.ProductAction" method="{1}">	
+			<interceptor-ref name="userLoginInterceptor">  
+            </interceptor-ref>  
+            <interceptor-ref name="myStack">  
+            </interceptor-ref> 
+		    <result name="index">/WEB-INF/manage/product.jsp</result>
+		    <result name="add">/WEB-INF/manage/pruducts_Add.jsp</result>
+		    <result name="redirectAction_to_index" type="redirectAction">ProductAction_index.do</result>
+		     <result name="update">/WEB-INF/manage/product_Modify.jsp</result>   
+		</action>
+		
+		<action name="CouponsAction_*" class="com.store.action.CouponsAction" method="{1}">	
+			<interceptor-ref name="userLoginInterceptor">  
+            </interceptor-ref>  
+            <interceptor-ref name="myStack">  
+            </interceptor-ref> 
+		    <result name="index">/WEB-INF/manage/Coupons.jsp</result>
+		     <result name="update">/WEB-INF/manage/coupons_Modify.jsp</result> 
+		    <result name="redirectAction_to_index" type="redirectAction">CouponsAction_index.do</result>
+		
+		</action>
+		
+
+		<action name="BannersAction_*" class="com.store.action.BannersAction" method="{1}">	
+			<interceptor-ref name="userLoginInterceptor">  
+            </interceptor-ref>  
+            <interceptor-ref name="myStack">  
+            </interceptor-ref> 
+		    <result name="index">/WEB-INF/manage/banners.jsp</result>
+		    <result name="redirectAction_to_index" type="redirectAction">BannersAction_index.do</result>
+		
+		</action>
+		
+		<action name="NewsAction_*" class="com.store.action.NewsAction" method="{1}">	
+			<interceptor-ref name="userLoginInterceptor">  
+            </interceptor-ref>  
+            <interceptor-ref name="myStack">  
+            </interceptor-ref> 
+		    <result name="index">/WEB-INF/manage/news.jsp</result>
+		    <result name="redirectAction_to_index" type="redirectAction">NewsAction_index.do</result>
+		
+		</action>
+		
+		
+		<action name="AddressAction_*" class="com.store.action.AddressAction" method="{1}">	
+			<interceptor-ref name="userLoginInterceptor">  
+            </interceptor-ref>  
+            <interceptor-ref name="myStack">  
+            </interceptor-ref> 
+		    <result name="index">/WEB-INF/manage/address.jsp</result>
+		    <result name="redirectAction_to_index" type="redirectAction">AddressAction_index.do</result>
+		
+		</action>
+		
+
+	</package>
+	
+
+
+</struts>

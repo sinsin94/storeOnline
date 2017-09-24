@@ -1,0 +1,20 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.store.entity">
+   
+     <class name="Cart" table="Cart">
+        <id name="id" column="id" type="int">
+            <generator class="identity"/>
+        </id>
+       <property name="ProductId" column="ProductId" type="int"/>
+       <property name="joinTime" column="joinTime" type="date" />
+      
+         
+        <many-to-one name="customer"  class="com.store.entity.Customer"   cascade="save-update">
+            <column name="customerId" />
+        </many-to-one>
+    </class>
+    
+</hibernate-mapping> 
+

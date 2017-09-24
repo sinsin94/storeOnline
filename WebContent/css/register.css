@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+*{margin: 0 auto;padding: 0}
+.top1{color:orange;width:13%;height:84px;line-height:84px;margin-left:70px;font-family:cursive;font-size:xx-large;}
+    .register_name{border-bottom:2px solid red;font:bold 18px '黑体';padding-bottom:10px;}
+    .inputBox{margin-top:60px;margin-bottom: 60px;}
+    form>p>input{display:inline-block;height:40px;width:280px;outline:none;border:1px solid #d8d8d8;
+   padding-left:10px}
+    input::-webkit-input-placeholder{font-size:15px}
+    .inputBox p>span{margin-right:10px;width:120px;height:40px;line-height:40px;display:inline-block;text-align:right}
+    .inputBox p>label{display:inline-block;}
+    .inputBox p{margin:10px 230px;}
+    .inputBox p:nth-child(6) a,.inputBox p>b{display:inline-block;height:40px;width:110px;background:black;color:#FFF;line-height:40px;text-align:center;font-size:16px;border-radius:3px;cursor:pointer;padding:0}
+    .inputBox p:last-child a{width:150px}
+    .inputBoxComInfo p{margin:10px 300px;}x;background:url(../images/登陆.png) no-repeat 12px center;}
+    .login_certain{width: 270px;height: 40px;float: left;margin-left: 20px;margin-top: 20px;}
+.login_certain input{background-color:black;border:none;width:121px;height:41px;line-height:40px;font-size:14px;color:white;font-size:20px;font-family:monospace;border-radius:5px;margin-left:435px}

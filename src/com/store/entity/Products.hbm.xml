@@ -1,0 +1,52 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  <hibernate-mapping package="com.store.entity">
+   <class name = "Product" table = "Products">
+      <id name="ProductId" column="ProductId" type="int">
+            <generator class="identity"/>
+      </id>
+      <property name="PictureOne" column="PictureOne" type="string" length="100"/>
+      <property name="PictureTwo" column="PictureTwo" type="string" length="100"/> 
+      <property name="PictureThree" column="PictureThree" type="string" length="100"/>  
+      <property name="PictureFour" column="PictureFour" type="string" length="100"/>   
+      <property name="PictureFive" column="PictureFive" type="string" length="100"/>
+      <property name="Picturebig" column="Picturebig" type="string" length="100"/>
+      
+      <property name="publisher" column="publisher" type="string" length="100"/>  
+      <property name="author" column="author" type="string" length="100"/> 
+      <property name="details" column="details" type="string" length="100"/>     
+      <property name="inventory" column="inventory" type="int" length="100"/>  
+      <property name="productName" column="productName" type="string" length="100"/>   
+      <property name="productNum" column="productNum" type="string" length="100"/>  
+      <property name="productUsed" column="productUsed" type="int" length="100"/>  
+      <property name="currentPrice" column="currentPrice" type="double" length="100"/>  
+      <property name="marketPrice" column="marketPrice" type="double" length="100"/>  
+      <property name="commentNumer" column="commentNumer" type="int" length="100"/>  
+      <property name="points" column="points" type="int" length="100"/>    
+      <property name="productStatus" column="productStatus" type="string" length="100"/> 
+      <property name="secondCategoryId" column="secondCategoryId" type="string" length="100"/>
+      <property name="joinTime" column="joinTime" type="date"/>
+        
+          
+        <set name="comments" lazy="false" >
+            <key column="productID"/>
+            <one-to-many class="com.store.entity.Comment"/>
+        </set> 
+   </class> 
+
+
+	
+	
+	
+
+
+
+
+
+
+	
+   
+   
+   
+   </hibernate-mapping>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<package name="customer" namespace="/customer" extends="one">
+
+	<interceptors>
+		<interceptor name="customerLoginInterceptor"	class="com.store.interceptor.CustomerLoginInterceptor"></interceptor>
+		<!--还可自定义拦截器栈 ,组合了studentLoginInterceptor和myStack-->
+	<!-- <interceptor-stack name="studentlogin">     
+	        <interceptor-ref name="myStack"></interceptor-ref>
+	        <interceptor-ref name="studentLoginInterceptor"></interceptor-ref>
+	     </interceptor-stack> -->
+		
+	</interceptors>
+
+
+	<action name="FrontCustomerAction_*" class="com.store.action.FrontCustomerAction"
+		method="{1}">
+
+		<interceptor-ref name="customerLoginInterceptor">
+		   <param name="excludeMethods">getpwd,register</param>
+		</interceptor-ref>
+		<interceptor-ref name="myStack">
+		</interceptor-ref>
+		
+		<result name="register">/WEB-INF/customer/register.jsp</result>
+		<result name="index">/WEB-INF/customer/home.jsp</result>
+		<result name="myorder">/WEB-INF/customer/Myorder.jsp</result>
+		<result name="login">/index.jsp</result>
+		<result name="update">/WEB-INF/student/student_Modify.jsp</result>
+		<result name="stuResultQuery">/WEB-INF/student/stuResultQuery.jsp</result>
+		<result name="getpwdstep1">/WEB-INF/customer/seekPwd.jsp</result>
+		<result name="getpwdstep2">/WEB-INF/customer/seekPwd1.jsp</result>
+		<result name="getpwdstep3">/WEB-INF/customer/seekPwd2.jsp</result>
+		<result name="getpwdstep4">/WEB-INF/customer/seekPwd3.jsp</result>		
+		<result name="customerinfo">/WEB-INF/customer/customerInfoCenter.jsp</result>
+		<result name="restPwd">/WEB-INF/customer/restPwd.jsp</result>
+		
+		<result name="redirectAction_to_index" type="redirectAction">FrontCustomerAction_Myorder.do</result>
+		<result name="redirectAction_to_center" type="redirectAction">FrontCustomerAction_CustomerInfo.do</result>
+
+		<result name="input">/index.jsp</result>
+	</action>
+	
+	
+	<action name="FrontAddressAction_*" class="com.store.action.FrontAddressAction"
+		method="{1}">
+
+		<interceptor-ref name="customerLoginInterceptor">
+		   <param name="excludeMethods">getpwd,register</param>
+		</interceptor-ref>
+		<interceptor-ref name="myStack">
+		</interceptor-ref>
+
+		<result name="myorder" >/WEB-INF/customer/Myorder.jsp</result>
+		<result name="input">/index.jsp</result>
+	</action>
+	
+	
+	<action name="FrontProductAction_*" class="com.store.action.FrontProductAction"
+		method="{1}">
+
+		<interceptor-ref name="customerLoginInterceptor">
+		   <param name="excludeMethods">getpwd,register</param>
+		</interceptor-ref>
+		<interceptor-ref name="myStack">
+		</interceptor-ref>
+
+		<result name="productdetail" >/WEB-INF/customer/productdetail.jsp</result>
+		<result name="collectionPage" >/WEB-INF/customer/collection.jsp</result>
+		<result name="waitbuy" >/WEB-INF/customer/waitBuy.jsp</result>
+		<result name="index">/WEB-INF/customer/home.jsp</result>
+		<result name="allproduct">/WEB-INF/customer/all.jsp</result>
+		<result name="frontcart" >/WEB-INF/customer/cart.jsp</result>
+		<result name="categoryPage" >/WEB-INF/customer/all.jsp</result>	
+		<result name="redirectAction_to_index" type="redirectAction">FrontProductAction_frontCart.do</result>
+		<result name="redirectAction_to_index" type="redirectAction">FrontProductAction_index.do</result>
+		<result name="news">/WEB-INF/customer/news.jsp</result>
+		
+	</action>
+	
+	
+	
+		
+</package>
+	
+</struts>

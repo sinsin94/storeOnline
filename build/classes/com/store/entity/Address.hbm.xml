@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.store.entity">
+   
+     <class name="Address" table="Address">
+        <id name="addressId" column="addressId" type="int">
+            <generator class="identity"/>
+        </id>
+      <property name="custoId" column="custoId" type="int"/>
+      <property name="province" column="province" type="string"/>
+      <property name="city" column="city" type="string"/>
+      <property name="area" column="area" type="string"/>
+     
+      <property name="receiver" column="receiver" type="string"/>
+     
+       <property name="contactUserPhone" column="contactUserPhone" type="string"/>
+       <property name="detailAddress" column="detailAddress" type="string"/>
+        <property name="states" column="states" type="int"/>
+       
+    </class>
+    
+</hibernate-mapping> 
+

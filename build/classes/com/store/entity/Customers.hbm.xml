@@ -1,0 +1,50 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.store.entity">
+       <class name="Customer" table="Customers">
+ 
+        
+        <id name="customerId" column="customerId" type="int">
+             <!-- <generator class="com.store.util.CustomerNumGenerator"/> -->
+               <generator class="identity"/>
+        </id>
+        <property name="name" column="name" type="string" length="20"/>
+        <property name="pwd" column="pwd" type="string" length="32" /> 
+       
+        <property name="cardNo" column="cardNo" type="string" length="20"/>     
+        <property name="email" column="email" type="string" length="20"/>
+        <property name="phone" column="phone" type="string" length="20" />
+        <property name="regTime" column="regTime" type="date" /> 
+        <property name="points" column="points" type="int" length="20" /> 
+        <property name="answer" column="answer" type="string" length="100" />
+        <property name="question" column="question" type="string" length="100" />
+     <!--     inverse=false 表示由自己方来维护  cascade（级联）-->
+        <set name="orders"  inverse="true" cascade="all" >
+            <key column="cusId"/>
+            <one-to-many class="com.store.entity.Order" />
+        </set>   
+      <!--   消费者和优惠劵的一对多 -->
+      
+      <!--   消费者和地址的一对多 -->
+         <set name="address" lazy="false" inverse="true" cascade="all-delete-orphan">
+        
+            <key column="custoId"/>
+            <one-to-many class="com.store.entity.Address" />
+        </set> 
+        
+       <!--   消费者和购物车的一对多 -->
+         <set name="carts"  inverse="false" cascade="delete" >
+            <key column="customerId"/>
+            <one-to-many class="com.store.entity.Cart" />
+        </set>
+        
+        <!-- 消费者和收藏夹的一对多 -->
+         
+        <set name="collections"  inverse="false" cascade="delete" >
+            <key column="customerId"/>
+            <one-to-many class="com.store.entity.Collection" />
+        </set>
+    </class>
+    
+</hibernate-mapping>

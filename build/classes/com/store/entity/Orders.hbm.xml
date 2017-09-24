@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.store.entity">
+       <class name="Order" table="Orders">
+ 
+        
+        <id name="orderId" column="orderId" type="int">
+            <generator class="identity"/>
+        </id>
+        <property name="customerId" column="customerId" type="int" length="20"/>
+        <property name="ProductId" column="ProductId" type="int" length="32" /> 
+        <property name="totalPrice" column="totalPrice" type="double" length="20" />  
+        <property name="orderAddress" column="orderAddress" type="string" length="100" /> 
+        <property name="expressName" column="expressName" type="string" length="100" /> 
+        <property name="bookNum" column="bookNum" type="int" length="100" />         
+        <property name="orderTime" column="orderTime" type="date" /> 
+ 		<many-to-one name="customer"  class="com.store.entity.Customer"   cascade="save-update">
+            <column name="cusId" />
+        </many-to-one> 
+ 
+    </class>
+    
+</hibernate-mapping>

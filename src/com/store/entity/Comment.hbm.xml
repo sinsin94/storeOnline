@@ -1,0 +1,21 @@
+ <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.store.entity">
+   
+     <class name="Comment" table="Comments">
+        <id name="id" column="id" type="int">
+            <generator class="identity"/>
+        </id>
+        <property name="content" column="content" type="string" length="100"/>
+        <property name="customerId" column="customerId" type="int" length="100"/>
+        <property name="productID" column="productID" type="int" length="100"/>
+         <property name="starNum" column="starNum" type="int" length="100"/>
+        <property name="commentTime" column="commentTime" type="date"/>
+       
+       
+      
+        
+    </class>
+    
+</hibernate-mapping> 

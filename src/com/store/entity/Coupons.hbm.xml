@@ -1,0 +1,19 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.store.entity">
+   
+     <class name="Coupons" table="Coupons">
+        <id name="couponId" column="couponId" type="int">
+            <generator class="identity"/>
+        </id>
+        <property name="biginTime" column="biginTime" type="date"/>
+        <property name="couponsName" column="couponsName" type="string"/>
+         <property name="states" column="states" type="int"/>
+        <property name="endTime" column="endTime" type="date"/>
+        <property name="money" column="money" type="double" length="20" />
+        <property name="cusMoney" column="cusMoney" type="double" length="20"/>
+		  <property name="cusId" column="cusId" type="int" />
+    </class>
+    
+</hibernate-mapping> 

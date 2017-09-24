@@ -1,0 +1,18 @@
+ <!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.store.entity">  
+     <class name="Category" table="Categorys">
+        <id name="id" column="id" type="int">
+            <generator class="identity"/>
+        </id>
+        <property name="categoryName" column="categoryName" type="string" length="20"/>      
+        <property name="joinTime" column="joinTime" type="date"/>   
+        <!-- 与二级分类的的一对多关系 
+        	lazy:执行查询一级分类记录的时候就一并查询二级分类表中的数据得到二级分类的信息 -->       
+         <set name="secondcategory" lazy="false" >
+            <key column="firstCategoryId"/>
+            <one-to-many class="com.store.entity.SecondCategory"/>
+        </set>      
+    </class>    
+</hibernate-mapping> 

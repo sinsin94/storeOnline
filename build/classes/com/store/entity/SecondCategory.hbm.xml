@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.store.entity">
+     <class name="SecondCategory" table="SecondCategorys">
+        <id name="id" column="id" type="int">
+            <generator class="identity"/>
+        </id>
+        <property name="secondCategoryName" column="secondCategoryName" type="string" length="20"/>
+       
+        <property name="createTime" column="createTime" type="date"/>
+        <property name="firstCategoryId" column="firstCategoryId" type="string"  length="100"/>
+        
+        
+         <set name="products" lazy="false" inverse="true" cascade="all-delete-orphan">
+            <key column="secondCategoryId"/>
+            <one-to-many class="com.store.entity.Product"/>
+        </set> 
+    </class>
+    
+    
+</hibernate-mapping>
